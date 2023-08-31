@@ -1,0 +1,26 @@
+
+<button (click)="sair()"  class="btn btn-primary">Sair</button>
+
+<div class="m-300">
+  <table>
+    <thead>
+      <tr>
+        <th scope="col" class="px-6 py-3">id</th>
+        <th scope="col" class="px-6 py-3">nome</th>
+        <th scope="col" class="px-6 py-3">quantidade</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let product of products">
+      <tr class="">
+        <td scope="row">{{ product.id }}</td>
+        <td>{{ product.nome }}</td>
+        <td>{{ product.quantidade }}</td>
+        <td>
+          <button [routerLink]="'/atualizar/' + product?.id">Atualizar</button>
+          <button (click)="deletar(product.id)">excluir</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<button [routerLink]="'/adicionar'">Adicionar um novo produto</button>
